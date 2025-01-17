@@ -1,0 +1,476 @@
+2024-12-04 13:38:59 - Loaded .env file
+2024-12-04 13:39:03 - Your app is available at http://localhost:8000
+2024-12-04 13:39:09,468 - agent_runtime - INFO - Chat started: Initializing agents and runtime
+2024-12-04 13:39:09 - Chat started: Initializing agents and runtime
+2024-12-04 13:39:09,487 - agent_runtime - INFO - Registered User Agent: AgentType(type='User')
+2024-12-04 13:39:09 - Registered User Agent: AgentType(type='User')
+2024-12-04 13:39:09,493 - agent_runtime - INFO - Added subscription for User Agent
+2024-12-04 13:39:09 - Added subscription for User Agent
+2024-12-04 13:39:09,499 - agent_runtime - INFO - Initialized Agent Registry and Intent Classifier
+2024-12-04 13:39:09 - Initialized Agent Registry and Intent Classifier
+2024-12-04 13:39:09,508 - agent_runtime - INFO - Registered Semantic Router Agent
+2024-12-04 13:39:09 - Registered Semantic Router Agent
+2024-12-04 13:39:09,522 - agent_runtime - INFO - Runtime started successfully
+2024-12-04 13:39:09 - Runtime started successfully
+2024-12-04 13:39:09 - Publishing message of type UserLogin to all subscribers: {}
+2024-12-04 13:39:09,534 - agent_runtime - INFO - Created new user session: 8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:39:09 - Created new user session: 8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:39:09 - Calling message handler for User with message type UserLogin published by Unknown
+Received message from User: 
+2024-12-04 13:39:09 - Message from user after model dump json: {}
+2024-12-04 13:39:18 - User message: alo tk t k vao duoc
+User input: alo tk t k vao duoc
+2024-12-04 13:39:18 - Publishing message of type UserTask to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User')]}
+2024-12-04 13:39:18 - Calling message handler for semantic_router_agent with message type UserTask published by User/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:39:18 - Received message from User: alo tk t k vao duoc
+UserMessage(content='alo tk t k vao duoc', source='User')
+2024-12-04 13:39:26 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:39:26 - {"prompt_tokens": 242, "completion_tokens": 2, "type": "LLMCall"}
+2024-12-04 13:39:26 - Identified intent: ERR_ACCOUNT
+2024-12-04 13:39:26 - Routing to agent: account_manager_agent
+2024-12-04 13:39:26 - Publishing message of type UserTask to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User')]}
+2024-12-04 13:39:26 - Calling message handler for account_manager_agent with message type UserTask published by semantic_router_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:39:26 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User')]}
+2024-12-04 13:39:26 - Calling message handler for account_triage_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:39:27 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:39:27 - {"prompt_tokens": 586, "completion_tokens": 13, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+account_triage_agent:
+[FunctionCall(id='call_sLzun93xJLeckhx1iyh7mWvI', arguments='{}', name='transfer_to_complex_agent_account')]
+--------------------------------------------------------------------------------
+account_triage_agent:
+Delegating to account_manager_agent, Requesting complex_agent_agent
+2024-12-04 13:39:27 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'complex_agent_agent'}
+2024-12-04 13:39:27 - Calling message handler for account_manager_agent with message type RequestAgent published by account_triage_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:39:27 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User')]}
+2024-12-04 13:39:27 - Calling message handler for complex_agent_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:39:29 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:39:29 - {"prompt_tokens": 2838, "completion_tokens": 61, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+complex_agent_agent:
+{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}
+2024-12-04 13:39:29 - Publishing message of type GroupChatAgentResponse to all subscribers: {'reply_to_topic_type': 'complex_agent_agent', 'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent')]}
+2024-12-04 13:39:29 - Calling message handler for account_manager_agent with message type GroupChatAgentResponse published by complex_agent_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:39:29 - Publishing message of type GroupChatResponse to all subscribers: {'reply_to_topic_type': 'complex_agent_agent', 'reply_to_group_chat': 'account_manager_agent', 'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent')]}
+2024-12-04 13:39:29 - Calling message handler for User with message type GroupChatResponse published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:39:29 - Group Chat Agent response: {"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}
+2024-12-04 13:39:37 - User message next: UserMessage(content='tên ducttm cổng fugu', source='User')
+2024-12-04 13:39:37 - Publishing message of type TransferMessage to all subscribers: {'reply_to_topic_type': 'complex_agent_agent', 'context': [UserMessage(content='alo tk t k vao duoc', source='User'), UserMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User')]}
+2024-12-04 13:39:37 - Calling message handler for account_manager_agent with message type TransferMessage published by User/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:39:37 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User')]}
+2024-12-04 13:39:37 - Calling message handler for complex_agent_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:39:39 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:39:39 - {"prompt_tokens": 2920, "completion_tokens": 26, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+complex_agent_agent:
+[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')]
+--------------------------------------------------------------------------------
+complex_agent_agent:
+[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]
+2024-12-04 13:39:41 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:39:41 - {"prompt_tokens": 2993, "completion_tokens": 56, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+complex_agent_agent:
+{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}
+2024-12-04 13:39:41 - Publishing message of type GroupChatAgentResponse to all subscribers: {'reply_to_topic_type': 'complex_agent_agent', 'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent')]}
+2024-12-04 13:39:41 - Calling message handler for account_manager_agent with message type GroupChatAgentResponse published by complex_agent_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+--------------------------------------------------------------------------------
+account_manager_agent:
+Exiting Conversation Flow
+2024-12-04 13:39:41 - Publishing message of type GroupChatResponse to all subscribers: {'reply_to_topic_type': 'account_triage_agent', 'reply_to_group_chat': 'account_manager_agent', 'context': [UserMessage(content='alo tk t k vao duoc', source='User'), UserMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent')]}
+2024-12-04 13:39:41 - Calling message handler for User with message type GroupChatResponse published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:39:41 - Group Chat Agent response: {"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}
+2024-12-04 13:40:26 - User message next: UserMessage(content='ê nạp momo như nào', source='User')
+2024-12-04 13:40:26 - Publishing message of type TransferMessage to all subscribers: {'reply_to_topic_type': 'account_triage_agent', 'context': [UserMessage(content='alo tk t k vao duoc', source='User'), UserMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), UserMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê nạp momo như nào', source='User')]}
+2024-12-04 13:40:26 - Calling message handler for account_manager_agent with message type TransferMessage published by User/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:26 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê nạp momo như nào', source='User')]}
+2024-12-04 13:40:26 - Calling message handler for account_triage_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:27 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:40:27 - {"prompt_tokens": 816, "completion_tokens": 13, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+account_triage_agent:
+[FunctionCall(id='call_RQYizJ601clpzEEmT5Ubq7OU', arguments='{}', name='transfer_back_to_router_agent')]
+--------------------------------------------------------------------------------
+account_triage_agent:
+Delegating to account_manager_agent, Requesting semantic_router_agent
+2024-12-04 13:40:27 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'semantic_router_agent'}
+2024-12-04 13:40:27 - Calling message handler for account_manager_agent with message type RequestAgent published by account_triage_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:27 - Publishing message of type UserTask to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), UserMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), UserMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê nạp momo như nào', source='User')]}
+2024-12-04 13:40:27 - Calling message handler for semantic_router_agent with message type UserTask published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:27 - Received message from User: ê nạp momo như nào
+UserMessage(content='ê nạp momo như nào', source='User')
+2024-12-04 13:40:28 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:40:28 - {"prompt_tokens": 241, "completion_tokens": 1, "type": "LLMCall"}
+2024-12-04 13:40:28 - Identified intent: OTHER
+2024-12-04 13:40:28 - Routing to agent: other_agent
+2024-12-04 13:40:28 - Publishing message of type UserTask to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), UserMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), UserMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê nạp momo như nào', source='User')]}
+2024-12-04 13:40:28 - Calling message handler for other_agent with message type UserTask published by semantic_router_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:30 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:40:30 - {"prompt_tokens": 1177, "completion_tokens": 34, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+other_agent:
+Xin lỗi bạn vì mình chưa hiểu nội dung bạn đang hỏi về nạp momo. Bạn có thể hỏi lại rõ ràng và chính xác hơn được không nhé?
+2024-12-04 13:40:30 - Publishing message of type AgentResponse to all subscribers: {'reply_to_topic_type': 'other_agent', 'context': [UserMessage(content='alo tk t k vao duoc', source='User'), UserMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), UserMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê nạp momo như nào', source='User'), AssistantMessage(content='Xin lỗi bạn vì mình chưa hiểu nội dung bạn đang hỏi về nạp momo. Bạn có thể hỏi lại rõ ràng và chính xác hơn được không nhé?', source='other_agent')]}
+2024-12-04 13:40:30 - Calling message handler for User with message type AgentResponse published by other_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:30 - Agent response: Xin lỗi bạn vì mình chưa hiểu nội dung bạn đang hỏi về nạp momo. Bạn có thể hỏi lại rõ ràng và chính xác hơn được không nhé?
+2024-12-04 13:40:36 - User message next: UserMessage(content='ê quên mk rồi', source='User')
+2024-12-04 13:40:36 - message after load_json:{'reply_to_topic_type': 'other_agent', 'context': [{'content': 'alo tk t k vao duoc', 'source': 'User'}, {'content': '{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', 'source': 'complex_agent_agent'}, {'content': 'tên ducttm cổng fugu', 'source': 'User'}, {'content': '{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', 'source': 'complex_agent_agent'}, {'content': 'ê nạp momo như nào', 'source': 'User'}, {'content': 'Xin lỗi bạn vì mình chưa hiểu nội dung bạn đang hỏi về nạp momo. Bạn có thể hỏi lại rõ ràng và chính xác hơn được không nhé?', 'source': 'other_agent'}]}
+2024-12-04 13:40:36 - Publishing message of type UserTask to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), UserMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), UserMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê nạp momo như nào', source='User'), UserMessage(content='Xin lỗi bạn vì mình chưa hiểu nội dung bạn đang hỏi về nạp momo. Bạn có thể hỏi lại rõ ràng và chính xác hơn được không nhé?', source='other_agent'), UserMessage(content='ê quên mk rồi', source='User')]}
+2024-12-04 13:40:36 - Calling message handler for other_agent with message type UserTask published by User/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:37 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:40:37 - {"prompt_tokens": 1228, "completion_tokens": 13, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+other_agent:
+[FunctionCall(id='call_jYpf9kVzcvuRTVCdmRS52x4u', arguments='{}', name='transfer_back_to_router_agent')]
+--------------------------------------------------------------------------------
+other_agent:
+Delegating to semantic_router_agent
+2024-12-04 13:40:37 - Publishing message of type UserTask to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), UserMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), UserMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê nạp momo như nào', source='User'), UserMessage(content='Xin lỗi bạn vì mình chưa hiểu nội dung bạn đang hỏi về nạp momo. Bạn có thể hỏi lại rõ ràng và chính xác hơn được không nhé?', source='other_agent'), UserMessage(content='ê quên mk rồi', source='User')]}
+2024-12-04 13:40:37 - Calling message handler for semantic_router_agent with message type UserTask published by other_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:37 - Received message from User: ê quên mk rồi
+UserMessage(content='ê quên mk rồi', source='User')
+2024-12-04 13:40:38 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:40:38 - {"prompt_tokens": 240, "completion_tokens": 2, "type": "LLMCall"}
+2024-12-04 13:40:38 - Identified intent: ERR_ACCOUNT
+2024-12-04 13:40:38 - Routing to agent: account_manager_agent
+2024-12-04 13:40:38 - Publishing message of type UserTask to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), UserMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), UserMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê nạp momo như nào', source='User'), UserMessage(content='Xin lỗi bạn vì mình chưa hiểu nội dung bạn đang hỏi về nạp momo. Bạn có thể hỏi lại rõ ràng và chính xác hơn được không nhé?', source='other_agent'), UserMessage(content='ê quên mk rồi', source='User')]}
+2024-12-04 13:40:38 - Calling message handler for account_manager_agent with message type UserTask published by semantic_router_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:38 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User')]}
+2024-12-04 13:40:38 - Calling message handler for account_triage_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:39 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:40:39 - {"prompt_tokens": 815, "completion_tokens": 13, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+account_triage_agent:
+[FunctionCall(id='call_955IgC6fmRT0KZP6l6tHf05J', arguments='{}', name='transfer_to_password_agent_account')]
+--------------------------------------------------------------------------------
+account_triage_agent:
+Delegating to account_manager_agent, Requesting password_agent_agent
+2024-12-04 13:40:39 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'password_agent_agent'}
+2024-12-04 13:40:39 - Calling message handler for account_manager_agent with message type RequestAgent published by account_triage_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:39 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User')]}
+2024-12-04 13:40:39 - Calling message handler for password_agent_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:41 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:40:41 - {"prompt_tokens": 1228, "completion_tokens": 80, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+password_agent_agent:
+{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}
+2024-12-04 13:40:41 - Publishing message of type GroupChatAgentResponse to all subscribers: {'reply_to_topic_type': 'password_agent_agent', 'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent')]}
+2024-12-04 13:40:41 - Calling message handler for account_manager_agent with message type GroupChatAgentResponse published by password_agent_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+--------------------------------------------------------------------------------
+account_manager_agent:
+Exiting Conversation Flow
+2024-12-04 13:40:41 - Publishing message of type GroupChatResponse to all subscribers: {'reply_to_topic_type': 'account_triage_agent', 'reply_to_group_chat': 'account_manager_agent', 'context': [UserMessage(content='alo tk t k vao duoc', source='User'), UserMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), UserMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê nạp momo như nào', source='User'), UserMessage(content='Xin lỗi bạn vì mình chưa hiểu nội dung bạn đang hỏi về nạp momo. Bạn có thể hỏi lại rõ ràng và chính xác hơn được không nhé?', source='other_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent')]}
+2024-12-04 13:40:41 - Calling message handler for User with message type GroupChatResponse published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:40:41 - Group Chat Agent response: {"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}
+2024-12-04 13:41:03 - User message next: UserMessage(content='ê t k vao duoc tk', source='User')
+2024-12-04 13:41:03 - Publishing message of type TransferMessage to all subscribers: {'reply_to_topic_type': 'account_triage_agent', 'context': [UserMessage(content='alo tk t k vao duoc', source='User'), UserMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), UserMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê nạp momo như nào', source='User'), UserMessage(content='Xin lỗi bạn vì mình chưa hiểu nội dung bạn đang hỏi về nạp momo. Bạn có thể hỏi lại rõ ràng và chính xác hơn được không nhé?', source='other_agent'), UserMessage(content='ê quên mk rồi', source='User'), UserMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:03 - Calling message handler for account_manager_agent with message type TransferMessage published by User/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:03 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:03 - Calling message handler for account_triage_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:05 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:05 - {"prompt_tokens": 915, "completion_tokens": 13, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+account_triage_agent:
+[FunctionCall(id='call_wvgA71kPGKPRfLqNWVp8mdWz', arguments='{}', name='transfer_to_complex_agent_account')]
+--------------------------------------------------------------------------------
+account_triage_agent:
+Delegating to account_manager_agent, Requesting complex_agent_agent
+2024-12-04 13:41:05 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'complex_agent_agent'}
+2024-12-04 13:41:05 - Calling message handler for account_manager_agent with message type RequestAgent published by account_triage_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:05 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:05 - Calling message handler for complex_agent_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:06 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:06 - {"prompt_tokens": 3167, "completion_tokens": 14, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+complex_agent_agent:
+[FunctionCall(id='call_WRY8t2MRyap7KHd6CbqWKQ4B', arguments='{}', name='transfer_to_triage_agent_account')]
+--------------------------------------------------------------------------------
+complex_agent_agent:
+Delegating to account_manager_agent, Requesting account_triage_agent
+2024-12-04 13:41:06 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'account_triage_agent'}
+2024-12-04 13:41:06 - Calling message handler for account_manager_agent with message type RequestAgent published by complex_agent_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:06 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:06 - Calling message handler for account_triage_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:07 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:07 - {"prompt_tokens": 915, "completion_tokens": 13, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+account_triage_agent:
+[FunctionCall(id='call_TZPKaO9CxkhDgWNZmgLdyNk9', arguments='{}', name='transfer_to_complex_agent_account')]
+--------------------------------------------------------------------------------
+account_triage_agent:
+Delegating to account_manager_agent, Requesting complex_agent_agent
+2024-12-04 13:41:07 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'complex_agent_agent'}
+2024-12-04 13:41:07 - Calling message handler for account_manager_agent with message type RequestAgent published by account_triage_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:07 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:07 - Calling message handler for complex_agent_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:08 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:08 - {"prompt_tokens": 3167, "completion_tokens": 14, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+complex_agent_agent:
+[FunctionCall(id='call_gfkJXkBtcSZy7bOkn3ZjPdPm', arguments='{}', name='transfer_to_triage_agent_account')]
+--------------------------------------------------------------------------------
+complex_agent_agent:
+Delegating to account_manager_agent, Requesting account_triage_agent
+2024-12-04 13:41:08 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'account_triage_agent'}
+2024-12-04 13:41:08 - Calling message handler for account_manager_agent with message type RequestAgent published by complex_agent_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:08 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:08 - Calling message handler for account_triage_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:09 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:09 - {"prompt_tokens": 915, "completion_tokens": 13, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+account_triage_agent:
+[FunctionCall(id='call_pYlwNin4FTLmmVXCzRwE9Yzb', arguments='{}', name='transfer_to_complex_agent_account')]
+--------------------------------------------------------------------------------
+account_triage_agent:
+Delegating to account_manager_agent, Requesting complex_agent_agent
+2024-12-04 13:41:09 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'complex_agent_agent'}
+2024-12-04 13:41:09 - Calling message handler for account_manager_agent with message type RequestAgent published by account_triage_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:09 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:09 - Calling message handler for complex_agent_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:10 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:10 - {"prompt_tokens": 3167, "completion_tokens": 14, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+complex_agent_agent:
+[FunctionCall(id='call_wusYfQFp5rIdjmgMoJohzfzM', arguments='{}', name='transfer_to_triage_agent_account')]
+--------------------------------------------------------------------------------
+complex_agent_agent:
+Delegating to account_manager_agent, Requesting account_triage_agent
+2024-12-04 13:41:10 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'account_triage_agent'}
+2024-12-04 13:41:10 - Calling message handler for account_manager_agent with message type RequestAgent published by complex_agent_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:10 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:10 - Calling message handler for account_triage_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:12 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:12 - {"prompt_tokens": 915, "completion_tokens": 13, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+account_triage_agent:
+[FunctionCall(id='call_JTjY2EAv0SGQ6ADQErX5Xoxo', arguments='{}', name='transfer_to_complex_agent_account')]
+--------------------------------------------------------------------------------
+account_triage_agent:
+Delegating to account_manager_agent, Requesting complex_agent_agent
+2024-12-04 13:41:12 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'complex_agent_agent'}
+2024-12-04 13:41:12 - Calling message handler for account_manager_agent with message type RequestAgent published by account_triage_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:12 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:12 - Calling message handler for complex_agent_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:13 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:13 - {"prompt_tokens": 3167, "completion_tokens": 14, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+complex_agent_agent:
+[FunctionCall(id='call_dJRz4O36jWGqovYXiKSHvKNw', arguments='{}', name='transfer_to_triage_agent_account')]
+--------------------------------------------------------------------------------
+complex_agent_agent:
+Delegating to account_manager_agent, Requesting account_triage_agent
+2024-12-04 13:41:13 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'account_triage_agent'}
+2024-12-04 13:41:13 - Calling message handler for account_manager_agent with message type RequestAgent published by complex_agent_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:13 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:13 - Calling message handler for account_triage_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:14 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:14 - {"prompt_tokens": 915, "completion_tokens": 13, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+account_triage_agent:
+[FunctionCall(id='call_zgbIXY3Wja1Dd1KOp8m7Wnu6', arguments='{}', name='transfer_to_complex_agent_account')]
+--------------------------------------------------------------------------------
+account_triage_agent:
+Delegating to account_manager_agent, Requesting complex_agent_agent
+2024-12-04 13:41:14 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'complex_agent_agent'}
+2024-12-04 13:41:14 - Calling message handler for account_manager_agent with message type RequestAgent published by account_triage_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:14 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:14 - Calling message handler for complex_agent_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:15 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:15 - {"prompt_tokens": 3167, "completion_tokens": 14, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+complex_agent_agent:
+[FunctionCall(id='call_uDECJtaD7LXhCfQp8hQTGDbk', arguments='{}', name='transfer_to_triage_agent_account')]
+--------------------------------------------------------------------------------
+complex_agent_agent:
+Delegating to account_manager_agent, Requesting account_triage_agent
+2024-12-04 13:41:15 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'account_triage_agent'}
+2024-12-04 13:41:15 - Calling message handler for account_manager_agent with message type RequestAgent published by complex_agent_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:15 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:15 - Calling message handler for account_triage_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:16 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:16 - {"prompt_tokens": 915, "completion_tokens": 13, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+account_triage_agent:
+[FunctionCall(id='call_urWpNQwUbLqHP3ro3SDS8xJt', arguments='{}', name='transfer_to_complex_agent_account')]
+--------------------------------------------------------------------------------
+account_triage_agent:
+Delegating to account_manager_agent, Requesting complex_agent_agent
+2024-12-04 13:41:16 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'complex_agent_agent'}
+2024-12-04 13:41:16 - Calling message handler for account_manager_agent with message type RequestAgent published by account_triage_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:16 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:16 - Calling message handler for complex_agent_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:17 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:17 - {"prompt_tokens": 3167, "completion_tokens": 14, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+complex_agent_agent:
+[FunctionCall(id='call_6oZXEy2PkmoRDrTSjlcaOK8N', arguments='{}', name='transfer_to_triage_agent_account')]
+--------------------------------------------------------------------------------
+complex_agent_agent:
+Delegating to account_manager_agent, Requesting account_triage_agent
+2024-12-04 13:41:17 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'account_triage_agent'}
+2024-12-04 13:41:17 - Calling message handler for account_manager_agent with message type RequestAgent published by complex_agent_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:17 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:17 - Calling message handler for account_triage_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:18 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:18 - {"prompt_tokens": 915, "completion_tokens": 13, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+account_triage_agent:
+[FunctionCall(id='call_aMv5oSwWvutIOTRoYXSvc9va', arguments='{}', name='transfer_to_complex_agent_account')]
+--------------------------------------------------------------------------------
+account_triage_agent:
+Delegating to account_manager_agent, Requesting complex_agent_agent
+2024-12-04 13:41:18 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'complex_agent_agent'}
+2024-12-04 13:41:18 - Calling message handler for account_manager_agent with message type RequestAgent published by account_triage_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:18 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:18 - Calling message handler for complex_agent_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:20 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:20 - {"prompt_tokens": 3167, "completion_tokens": 14, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+complex_agent_agent:
+[FunctionCall(id='call_p8hrZVib45UgOpPbpoGXe1qx', arguments='{}', name='transfer_to_triage_agent_account')]
+--------------------------------------------------------------------------------
+complex_agent_agent:
+Delegating to account_manager_agent, Requesting account_triage_agent
+2024-12-04 13:41:20 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'account_triage_agent'}
+2024-12-04 13:41:20 - Calling message handler for account_manager_agent with message type RequestAgent published by complex_agent_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:20 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:20 - Calling message handler for account_triage_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:21 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:21 - {"prompt_tokens": 915, "completion_tokens": 13, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+account_triage_agent:
+[FunctionCall(id='call_dgyUDnbAkcq34WhvsZQxqIty', arguments='{}', name='transfer_to_complex_agent_account')]
+--------------------------------------------------------------------------------
+account_triage_agent:
+Delegating to account_manager_agent, Requesting complex_agent_agent
+2024-12-04 13:41:21 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'complex_agent_agent'}
+2024-12-04 13:41:21 - Calling message handler for account_manager_agent with message type RequestAgent published by account_triage_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:21 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:21 - Calling message handler for complex_agent_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:22 - HTTP Request: POST https://litellm.dev.ftech.ai/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 13:41:22 - {"prompt_tokens": 3167, "completion_tokens": 14, "type": "LLMCall"}
+--------------------------------------------------------------------------------
+complex_agent_agent:
+[FunctionCall(id='call_BlbZ6xrjcIAZ3qaY28jChmEO', arguments='{}', name='transfer_to_triage_agent_account')]
+--------------------------------------------------------------------------------
+complex_agent_agent:
+Delegating to account_manager_agent, Requesting account_triage_agent
+2024-12-04 13:41:22 - Publishing message of type RequestAgent to all subscribers: {'agent_type': 'account_triage_agent'}
+2024-12-04 13:41:22 - Calling message handler for account_manager_agent with message type RequestAgent published by complex_agent_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+2024-12-04 13:41:22 - Publishing message of type GroupChatMessage to all subscribers: {'context': [UserMessage(content='alo tk t k vao duoc', source='User'), AssistantMessage(content='{"response":"Tài khoản của bạn hiện không vào được do quên thông tin đăng nhập? Hãy cung cấp tên nhân vật (nickName) của tài khoản và cổng game (gamePortal) để mình hỗ trợ kiểm tra.","is_exit":false,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='tên ducttm cổng fugu', source='User'), AssistantMessage(content=[FunctionCall(id='call_OgVd4ivefZRipx8dukGMXA2F', arguments='{"nickName":"ducttm","portalGame":"fugu"}', name='save_forget_acc_checking')], source='complex_agent_agent'), FunctionExecutionResultMessage(content=[FunctionExecutionResult(content='Lưu thông tin thành công: \n            - nick name:ducttm \n            - cong game:fugu\n            - record_id: 123456', call_id='call_OgVd4ivefZRipx8dukGMXA2F')]), AssistantMessage(content='{"response":"Mình đã ghi nhận thông tin tài khoản của bạn. Hiện tại mình sẽ kiểm tra và phản hồi lại sau khi có kết quả. Bạn vui lòng chờ trong giây lát nhé!","is_exit":true,"new_conversation":false}', source='complex_agent_agent'), UserMessage(content='ê quên mk rồi', source='User'), AssistantMessage(content='{"response":"Trong trường hợp tài khoản đã đăng ký bảo mật thì bạn có thể vào mục `Quên mật khẩu` để Reset mật khẩu bằng Email hoặc số điện thoại. Còn nếu tài khoản chưa đăng ký Số điện thoại hoặc Email thì không có cách nào Reset mật khẩu bạn ạ. Bạn cố nhớ lại mật khẩu để vào tài khoản nhé.","is_exit":true}', source='password_agent_agent'), UserMessage(content='ê t k vao duoc tk', source='User')]}
+2024-12-04 13:41:22 - Calling message handler for account_triage_agent with message type GroupChatMessage published by account_manager_agent/8cd17962-67b1-40d9-a80b-310cb8e64e34
+^Cdisconnect async handler error
+Traceback (most recent call last):
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/engineio/async_server.py", line 494, in run_async_handler
+    return await self.handlers[event](*args)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/socketio/async_server.py", line 692, in _handle_eio_disconnect
+    await self._handle_disconnect(eio_sid, n)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/socketio/async_server.py", line 585, in _handle_disconnect
+    await self._trigger_event('disconnect', namespace, sid)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/socketio/async_server.py", line 637, in _trigger_event
+    ret = await handler(*args)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/chainlit/socket.py", line 220, in disconnect
+    await persist_user_session(session.thread_id, session.to_persistable())
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/chainlit/session.py", line 147, in to_persistable
+    metadata = clean_metadata(user_session)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/chainlit/session.py", line 29, in clean_metadata
+    json.dumps(metadata, cls=JSONEncoderIgnoreNonSerializable, ensure_ascii=False)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+TypeError: keys must be str, int, float, bool or None, not AgentType
+2024-12-04 13:41:23 - disconnect async handler error
+Traceback (most recent call last):
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/engineio/async_server.py", line 494, in run_async_handler
+    return await self.handlers[event](*args)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/socketio/async_server.py", line 692, in _handle_eio_disconnect
+    await self._handle_disconnect(eio_sid, n)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/socketio/async_server.py", line 585, in _handle_disconnect
+    await self._trigger_event('disconnect', namespace, sid)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/socketio/async_server.py", line 637, in _trigger_event
+    ret = await handler(*args)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/chainlit/socket.py", line 220, in disconnect
+    await persist_user_session(session.thread_id, session.to_persistable())
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/chainlit/session.py", line 147, in to_persistable
+    metadata = clean_metadata(user_session)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/chainlit/session.py", line 29, in clean_metadata
+    json.dumps(metadata, cls=JSONEncoderIgnoreNonSerializable, ensure_ascii=False)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+TypeError: keys must be str, int, float, bool or None, not AgentType
+(ui-exp) (base) duc@DESKTOP-AT1KVDL:/mnt/d/FTECH/multi-agent$ 2024-12-04 14:05:23,196 - agent_runtime - INFO - app.py:100 - Chat started: Initializing agents and runtime
+2024-12-04 14:05:23,217 - agent_runtime - INFO - app.py:113 - Registered User Agent: AgentType(type='User')
+2024-12-04 14:05:23,223 - agent_runtime - INFO - app.py:117 - Added subscription for User Agent
+2024-12-04 14:05:23,229 - agent_runtime - INFO - app.py:125 - Initialized Agent Registry and Intent Classifier
+2024-12-04 14:05:23,237 - agent_runtime - INFO - app.py:150 - Registered Semantic Router Agent
+2024-12-04 14:05:23,262 - agent_runtime - INFO - app.py:306 - Runtime started successfully
+2024-12-04 14:05:23,269 - agent_runtime - INFO - app.py:311 - Created new user session: 2e5afc3d-d317-406c-a195-8eee09d245ab
+2024-12-04 14:07:48,161 - agent_runtime - INFO - app.py:100 - Chat started: Initializing agents and runtime
+2024-12-04 14:07:48,192 - agent_runtime - INFO - app.py:113 - Registered User Agent: AgentType(type='User')
+2024-12-04 14:07:48,197 - agent_runtime - INFO - app.py:117 - Added subscription for User Agent
+2024-12-04 14:07:48,201 - agent_runtime - INFO - app.py:125 - Initialized Agent Registry and Intent Classifier
+2024-12-04 14:07:48,204 - agent_runtime - INFO - app.py:150 - Registered Semantic Router Agent
+2024-12-04 14:07:48,211 - agent_runtime - INFO - app.py:306 - Runtime started successfully
+2024-12-04 14:07:48,215 - agent_runtime - INFO - app.py:311 - Created new user session: 6f35fa9e-233c-4c8c-8e26-6739f9de20f8
+2024-12-04 14:07:50,509 - agent_runtime - INFO - app.py:100 - Chat started: Initializing agents and runtime
+2024-12-04 14:07:50,512 - agent_runtime - ERROR - app.py:325 - Error during chat start: Agent with type AgentType(type='User') already exists.
+Traceback (most recent call last):
+  File "/mnt/d/FTECH/multi-agent/app.py", line 104, in on_chat_start
+    user_agent_type = await UserAgent.register(
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/autogen_core/base/_base_agent.py", line 154, in register
+    agent_type = await runtime.register_factory(type=agent_type, agent_factory=factory, expected_class=cls)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/autogen_core/application/_single_threaded_agent_runtime.py", line 573, in register_factory
+    raise ValueError(f"Agent with type {type} already exists.")
+ValueError: Agent with type AgentType(type='User') already exists.
+2024-12-04 14:07:54,318 - agent_runtime - INFO - app.py:100 - Chat started: Initializing agents and runtime
+2024-12-04 14:07:54,320 - agent_runtime - ERROR - app.py:325 - Error during chat start: Agent with type AgentType(type='User') already exists.
+Traceback (most recent call last):
+  File "/mnt/d/FTECH/multi-agent/app.py", line 104, in on_chat_start
+    user_agent_type = await UserAgent.register(
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/autogen_core/base/_base_agent.py", line 154, in register
+    agent_type = await runtime.register_factory(type=agent_type, agent_factory=factory, expected_class=cls)
+  File "/home/duc/miniconda3/envs/ui-exp/lib/python3.10/site-packages/autogen_core/application/_single_threaded_agent_runtime.py", line 573, in register_factory
+    raise ValueError(f"Agent with type {type} already exists.")
+ValueError: Agent with type AgentType(type='User') already exists.
+2024-12-04 14:08:10,846 - agent_runtime - INFO - app.py:100 - Chat started: Initializing agents and runtime
+2024-12-04 14:08:10,864 - agent_runtime - INFO - app.py:113 - Registered User Agent: AgentType(type='User')
+2024-12-04 14:08:10,876 - agent_runtime - INFO - app.py:117 - Added subscription for User Agent
+2024-12-04 14:08:10,882 - agent_runtime - INFO - app.py:125 - Initialized Agent Registry and Intent Classifier
+2024-12-04 14:08:10,888 - agent_runtime - INFO - app.py:150 - Registered Semantic Router Agent
+2024-12-04 14:08:10,897 - agent_runtime - INFO - app.py:306 - Runtime started successfully
+2024-12-04 14:08:10,903 - agent_runtime - INFO - app.py:311 - Created new user session: f2bdc32b-85b7-400f-a497-9956850bd2cc
+2024-12-04 14:10:47,118 - agent_runtime - INFO - app.py:100 - Chat started: Initializing agents and runtime
+2024-12-04 14:10:47,135 - agent_runtime - INFO - app.py:113 - Registered User Agent: AgentType(type='User')
+2024-12-04 14:10:47,140 - agent_runtime - INFO - app.py:117 - Added subscription for User Agent
+2024-12-04 14:10:47,146 - agent_runtime - INFO - app.py:125 - Initialized Agent Registry and Intent Classifier
+2024-12-04 14:10:47,152 - agent_runtime - INFO - app.py:150 - Registered Semantic Router Agent
+2024-12-04 14:10:47,160 - agent_runtime - INFO - app.py:306 - Runtime started successfully
+2024-12-04 14:10:47,169 - agent_runtime - INFO - app.py:311 - Created new user session: 8ac6a188-e2e9-4ab0-9e87-989f31a28e44
+2024-12-04 14:13:03,299 - agent_runtime - INFO - app.py:100 - Chat started: Initializing agents and runtime
+2024-12-04 14:13:03,320 - agent_runtime - INFO - app.py:113 - Registered User Agent: AgentType(type='User')
+2024-12-04 14:13:03,325 - agent_runtime - INFO - app.py:117 - Added subscription for User Agent
+2024-12-04 14:13:03,332 - agent_runtime - INFO - app.py:125 - Initialized Agent Registry and Intent Classifier
+2024-12-04 14:13:03,345 - agent_runtime - INFO - app.py:150 - Registered Semantic Router Agent
+2024-12-04 14:13:03,362 - agent_runtime - INFO - app.py:306 - Runtime started successfully
+2024-12-04 14:13:03,391 - agent_runtime - INFO - app.py:311 - Created new user session: becf5f4d-41b3-4c09-9147-3a6b05051d01
+2024-12-04 14:16:44,789 - agent_runtime - INFO - app.py:100 - Chat started: Initializing agents and runtime
+2024-12-04 14:16:44,807 - agent_runtime - INFO - app.py:113 - Registered User Agent: AgentType(type='User')
+2024-12-04 14:16:44,813 - agent_runtime - INFO - app.py:117 - Added subscription for User Agent
+2024-12-04 14:16:44,818 - agent_runtime - INFO - app.py:125 - Initialized Agent Registry and Intent Classifier
+2024-12-04 14:16:44,824 - agent_runtime - INFO - app.py:150 - Registered Semantic Router Agent
+2024-12-04 14:16:44,837 - agent_runtime - INFO - app.py:306 - Runtime started successfully
+2024-12-04 14:16:44,850 - agent_runtime - INFO - app.py:311 - Created new user session: 711785fd-d4e8-4eaf-abad-1e7b9a15e679
+2024-12-04 15:31:24,332 - agent_runtime - INFO - app.py:100 - Chat started: Initializing agents and runtime
+2024-12-04 15:31:24,348 - agent_runtime - INFO - app.py:113 - Registered User Agent: AgentType(type='User')
+2024-12-04 15:31:24,350 - agent_runtime - INFO - app.py:117 - Added subscription for User Agent
+2024-12-04 15:31:24,353 - agent_runtime - INFO - app.py:125 - Initialized Agent Registry and Intent Classifier
+2024-12-04 15:31:24,355 - agent_runtime - INFO - app.py:150 - Registered Semantic Router Agent
+2024-12-04 15:31:24,360 - agent_runtime - INFO - app.py:306 - Runtime started successfully
+2024-12-04 15:31:24,368 - agent_runtime - INFO - app.py:311 - Created new user session: 75d10bd7-3454-4166-a103-d3487b5a6554
