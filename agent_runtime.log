@@ -474,3 +474,10 @@ ValueError: Agent with type AgentType(type='User') already exists.
 2024-12-04 15:31:24,355 - agent_runtime - INFO - app.py:150 - Registered Semantic Router Agent
 2024-12-04 15:31:24,360 - agent_runtime - INFO - app.py:306 - Runtime started successfully
 2024-12-04 15:31:24,368 - agent_runtime - INFO - app.py:311 - Created new user session: 75d10bd7-3454-4166-a103-d3487b5a6554
+2025-01-18 02:12:38,246 - agent_runtime - INFO - app.py:100 - Chat started: Initializing agents and runtime
+2025-01-18 02:12:38,261 - agent_runtime - INFO - app.py:113 - Registered User Agent: AgentType(type='User')
+2025-01-18 02:12:38,265 - agent_runtime - INFO - app.py:117 - Added subscription for User Agent
+2025-01-18 02:12:38,269 - agent_runtime - INFO - app.py:125 - Initialized Agent Registry and Intent Classifier
+2025-01-18 02:12:38,274 - agent_runtime - INFO - app.py:150 - Registered Semantic Router Agent
+2025-01-18 02:12:38,285 - agent_runtime - INFO - app.py:306 - Runtime started successfully
+2025-01-18 02:12:38,293 - agent_runtime - INFO - app.py:311 - Created new user session: 23136553-7005-45b8-a781-868789585fb0
